@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Sanjeevani</title>
+
+<style>
+:root {
+  --bg: #0b0f1a;
+  --panel: #121a2f;
+  --accent: #2ee6d6;
+  --danger: #ff3b3b;
+  --text: #e6e9f0;
+  --muted: #8b92a8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #111a33, var(--bg));
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+header {
+  padding: 26px;
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo svg {
+  width: 120px;
+  height: 40px;
+}
+
+.ecg path {
+  stroke: var(--accent);
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: ecg 2s linear infinite;
+}
+
+@keyframes ecg {
+  to { stroke-dashoffset: 0; }
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+.subtitle span {
+  color: var(--danger);
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 4px var(--danger); }
+  50% { text-shadow: 0 0 18px var(--danger); }
+  100% { text-shadow: 0 0 4px var(--danger); }
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.navbar a {
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.04);
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  background: var(--accent);
+  color: #002b2b;
+  box-shadow: 0 0 12px rgba(46,230,214,0.5);
+}
+
+/* ACTIVE PAGE */
+.navbar a.active {
+  background: var(--accent);
+  color: #002b2b;
+  box-shadow: 0 0 14px rgba(46,230,214,0.7);
+}
+
+/* ===== MAIN ===== */
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* SECTION */
+.section {
+  background: linear-gradient(145deg, #141d3a, #0e152a);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 22px;
+  box-shadow: 0 0 40px rgba(46,230,214,0.05);
+  animation: fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section h2 {
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* INFO CARDS */
+.card {
+  background: var(--panel);
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.card h3 {
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* FORM */
+form {
+  display: grid;
+  gap: 14px;
+}
+
+input, textarea {
+  background: #0e152a;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 12px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(46,230,214,0.3);
+}
+
+button {
+  background: linear-gradient(135deg, var(--accent), #1fb9aa);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-weight: 700;
+  color: #001414;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0 0 18px rgba(46,230,214,0.6);
+}
+
+/* EMERGENCY */
+.emergency-box {
+  border: 1px solid rgba(255,59,59,0.4);
+  background: rgba(255,59,59,0.06);
+}
+
+.emergency-box h3 {
+  color: var(--danger);
+}
+
+.emergency-box p {
+  color: #ffd6d6;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <svg class="ecg" viewBox="0 0 120 40">
+      <path d="M0 20 L20 20 L30 5 L40 35 L50 20 L120 20" />
+    </svg>
+    <h1>SANJEEVANI</h1>
+  </div>
+
+  <div class="subtitle">
+    <span>EMERGENCY</span> HEALTHCARE PLATFORM
+  </div>
+
+  <!-- FIXED NAVBAR -->
+  <div class="navbar">
+    <a href="/">Home</a>
+    <a href="/search/">Search</a>
+    <a href="/about/">About</a>
+    <a href="/contact/" class="active">Contact</a>
+    <a href="/login/">Login</a>
+    <a href="/register/">Register</a>
+  </div>
+</header>
+
+<main>
+
+  <div class="section">
+    <h2>Get in Touch</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Address</h3>
+        <p>Maharashtra, India</p>
+      </div>
+      <div class="card">
+        <h3>Contact</h3>
+        <p>Email: support@sanjeevani.health</p>
+        <p>Phone: +91-8468885347</p>
+      </div>
+      <div class="card">
+        <h3>For Hospitals</h3>
+        <p>Register your facility to provide real-time emergency data.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Send Us a Message</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <div class="section emergency-box">
+    <h3>Emergency Notice</h3>
+    <p>
+      Sanjeevani is not a replacement for emergency services.
+      In life-threatening situations, immediately dial <strong>112</strong>.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  Sanjeevani © Emergency Healthcare Platform
+</footer>
+
+</body>
+</html>
+

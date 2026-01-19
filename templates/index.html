@@ -1,0 +1,144 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+<title>Sanjeevani | Emergency Healthcare Platform</title> 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+
+<style> 
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif} 
+body{background:radial-gradient(circle at top,#0b1c24,#050b10);color:#e6f6ff} 
+
+.navbar{ 
+display:flex;justify-content:space-between;align-items:center; 
+padding:18px 40px;background:rgba(0,0,0,.45); 
+backdrop-filter:blur(10px);position:sticky;top:0;z-index:1000 
+} 
+
+.brand{display:flex;align-items:center;gap:14px} 
+.brand span{font-size:1.4rem;font-weight:700} 
+
+.ecg-logo{width:140px;height:40px} 
+.ecg-line{ 
+fill:none;stroke:#2ef2ff;stroke-width:3; 
+stroke-dasharray:300;stroke-dashoffset:300; 
+animation:ecg 2.5s linear infinite; 
+filter:drop-shadow(0 0 8px #2ef2ff) 
+} 
+
+@keyframes ecg{to{stroke-dashoffset:0}} 
+
+nav a{ 
+margin-left:18px;text-decoration:none; 
+color:#cdefff;font-weight:500 
+} 
+nav a:hover{color:#2ef2ff} 
+
+.auth a{ 
+margin-left:14px;padding:8px 18px; 
+border-radius:20px;font-size:.9rem; 
+text-decoration:none;font-weight:600 
+} 
+
+.login{border:1px solid #2ef2ff;color:#2ef2ff} 
+.register{background:#2ef2ff;color:#001118} 
+
+.hero{ 
+min-height:85vh;display:flex; 
+align-items:center;justify-content:center; 
+text-align:center;padding:60px 20px 
+} 
+
+.hero h1{font-size:clamp(2.5rem,5vw,4rem)} 
+
+.hero h1 .emergency{
+color:#ff3b3b;
+text-shadow:0 0 12px rgba(255,59,59,.8);
+animation:glow 1.4s infinite
+}
+
+@keyframes glow{
+0%{text-shadow:0 0 6px rgba(255,59,59,.4)}
+50%{text-shadow:0 0 22px rgba(255,59,59,1)}
+100%{text-shadow:0 0 6px rgba(255,59,59,.4)}
+}
+
+.hero p{max-width:720px;margin:24px auto;color:#b7d9e6}
+
+.buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+
+.btn{
+padding:14px 34px;border-radius:50px;
+font-weight:600;text-decoration:none
+}
+
+.primary{
+background:linear-gradient(135deg,#2ef2ff,#1bc8d8);
+color:#001118;
+box-shadow:0 0 25px rgba(46,242,255,.4)
+}
+
+.outline{border:2px solid #2ef2ff;color:#2ef2ff}
+
+.emergency-112{
+position:fixed;right:30px;bottom:30px;
+width:80px;height:80px;border-radius:50%;
+background:radial-gradient(circle,#ff3b3b,#b30000);
+display:flex;align-items:center;justify-content:center;
+font-weight:700;font-size:1.2rem;color:white;
+box-shadow:0 0 25px rgba(255,59,59,.8);
+text-decoration:none
+}
+
+.emergency-112:hover{transform:scale(1.05)}
+
+footer{text-align:center;padding:30px;color:#7faabb}
+
+@media(max-width:768px){
+.navbar{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="brand">
+    <svg class="ecg-logo" viewBox="0 0 200 40">
+      <polyline points="0,20 30,20 40,5 55,35 70,10 85,20 120,20 200,20" class="ecg-line"/>
+    </svg>
+    <span>Sanjeevani</span>
+  </div>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/search/">Search</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+
+  <div class="auth">
+    <a href="/login/" class="login">Login</a>
+    <a href="/register/" class="register">Register</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1><span class="emergency">Emergency</span> Healthcare Platform</h1>
+    <p>Real-time hospital beds & blood availability for life-critical moments.</p>
+    <div class="buttons">
+      <a href="/search/" class="btn primary">Search Beds & Blood</a>
+      <a href="/about/" class="btn outline">How It Works</a>
+    </div>
+  </div>
+</section>
+
+<a href="tel:112" class="emergency-112">112</a>
+
+<footer>© 2026 Sanjeevani</footer>
+
+</body>
+</html>
+

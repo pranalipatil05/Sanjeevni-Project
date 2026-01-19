@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Sanjeevani</title>
+
+<style>
+:root {
+  --bg:#0b0f1a;
+  --panel:#121a2f;
+  --accent:#2ee6d6;
+  --danger:#ff3b3b;
+  --text:#e6e9f0;
+  --muted:#8b92a8;
+}
+
+* {
+  box-sizing:border-box;
+  font-family:"Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  margin:0;
+  min-height:100vh;
+  background:radial-gradient(circle at top, #111a33, var(--bg));
+  color:var(--text);
+}
+
+/* ===== NAVBAR ===== */
+header {
+  padding: 24px;
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo svg {
+  width: 120px;
+  height: 40px;
+}
+
+.ecg path {
+  stroke: var(--accent);
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: ecg 2s linear infinite;
+}
+
+@keyframes ecg {
+  to { stroke-dashoffset: 0; }
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+}
+
+.subtitle span {
+  color: var(--danger);
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 4px var(--danger); }
+  50% { text-shadow: 0 0 18px var(--danger); }
+  100% { text-shadow: 0 0 4px var(--danger); }
+}
+
+/* NAV LINKS */
+.navbar {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.navbar a {
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.04);
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+  background: var(--accent);
+  color: #002b2b;
+  box-shadow: 0 0 12px rgba(46,230,214,0.5);
+}
+
+.navbar a.active {
+  background: var(--accent);
+  color: #002b2b;
+  box-shadow: 0 0 14px rgba(46,230,214,0.7);
+}
+
+/* ===== AUTH CARD ===== */
+.page-center {
+  min-height: calc(100vh - 220px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-box {
+  background:linear-gradient(145deg,#141d3a,#0e152a);
+  padding:32px;
+  border-radius:20px;
+  width:100%;
+  max-width:420px;
+  box-shadow:0 0 50px rgba(46,230,214,0.08);
+  animation:fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+h1 {
+  text-align:center;
+  margin-bottom:6px;
+  letter-spacing:1px;
+}
+
+.subtitle-small {
+  text-align:center;
+  font-size:0.85rem;
+  color:var(--muted);
+  margin-bottom:22px;
+}
+
+/* FORM */
+form {
+  display:grid;
+  gap:14px;
+}
+
+input {
+  background:#0e152a;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;
+  padding:12px;
+  color:var(--text);
+}
+
+input:focus {
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 8px rgba(46,230,214,0.3);
+}
+
+button {
+  background:linear-gradient(135deg,var(--accent),#1fb9aa);
+  border:none;
+  border-radius:12px;
+  padding:14px;
+  font-weight:700;
+  color:#001414;
+  cursor:pointer;
+}
+
+button:hover {
+  box-shadow:0 0 20px rgba(46,230,214,0.6);
+}
+
+.links {
+  text-align:center;
+  margin-top:14px;
+  font-size:0.85rem;
+}
+
+.links a {
+  color:var(--accent);
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <svg class="ecg" viewBox="0 0 120 40">
+      <path d="M0 20 L20 20 L30 5 L40 35 L50 20 L120 20" />
+    </svg>
+    <h1>SANJEEVANI</h1>
+  </div>
+
+  <div class="subtitle">
+    <span>EMERGENCY</span> HEALTHCARE PLATFORM
+  </div>
+
+  <div class="navbar">
+    <a href="/">Home</a>
+    <a href="/search/">Search</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/login/" class="active">Login</a>
+    <a href="/register/">Register</a>
+  </div>
+</header>
+
+<div class="page-center">
+  <div class="auth-box">
+    <h1>Login</h1>
+    <div class="subtitle-small">Secure access to Sanjeevani</div>
+
+    <!-- LOGIN FORM -->
+    <form method="POST">
+      {% csrf_token %}
+
+      <input type="email" name="username" placeholder="Email" autocomplete="off" required>
+      <input type="password" name="password" placeholder="Password" required>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="links">
+      New here? <a href="/register/">Create an account</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

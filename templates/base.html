@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sanjeevani{% endblock %}</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="nav-left">
+        <strong class="brand">Sanjeevani</strong>
+    </div>
+
+    <nav class="nav-links">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'search' %}">Search</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a href="#" class="btn login">Login</a>
+        <a href="tel:112" class="btn emergency">Emergency</a>
+    </div>
+</header>
+
+<!-- PAGE CONTENT -->
+<main class="page-container">
+    {% block content %}{% endblock %}
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-columns">
+        <div>
+            <h4>Sanjeevani</h4>
+            <p>Real-time emergency healthcare platform.</p>
+        </div>
+
+        <div>
+            <h4>Quick Links</h4>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'search' %}">Search</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'contact' %}">Contact</a>
+        </div>
+
+        <div>
+            <h4>For Hospitals</h4>
+            <a href="#">Register</a>
+            <a href="#">Dashboard</a>
+        </div>
+    </div>
+
+    <div class="copy">© 2025 Sanjeevani</div>
+</footer>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>
+
